@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 #
-# Copyright (C) <2014>  <t3sl4/tesla23>
+# Copyright (C) <2014> <t3sl4/tesla23>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -9,11 +9,11 @@
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>
+# along with this program. If not, see <http://www.gnu.org/licenses/>
 #
 # --------------------------------------------------------------------
 # Generate random password
@@ -26,14 +26,19 @@
 #
 #
 
+#!/usr/bin/env python2
+
 import base64
 import random
 import string
 from Crypto.Cipher import AES
 
+passwd = ''
 decoded = ''
 
 def makepasswd(bsize, key, spass, username, passfor, saveto, pad, dec, low, upp, pun):
+  global passwd
+
   if bsize == '32':
     bsize = 32
   elif bsize == '16':
@@ -44,7 +49,6 @@ def makepasswd(bsize, key, spass, username, passfor, saveto, pad, dec, low, upp,
     #TODO handle error
     print 'Error 1'
 
-  passwd = ''
   if int(dec) > 0:
     i = 0
     while i < int(dec):
