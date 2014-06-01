@@ -26,8 +26,6 @@
 #
 #
 
-#!/usr/bin/env python2
-
 import base64
 import random
 import string
