@@ -1,4 +1,4 @@
-apg-tool_gui
+apgtool-gui
 ============
 
 apg-tool GUI
