@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 #
-# Copyright (C) <2014>  <t3sl4/tesla23>
+# Copyright (C) <2014> <t3sl4/tesla23>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -9,11 +9,11 @@
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>
+# along with this program. If not, see <http://www.gnu.org/licenses/>
 #
 # --------------------------------------------------------------------
 # Generate random password
@@ -54,7 +54,7 @@ def cvalidate(centry):
     return False
   else:
     #TODO error.pack_forget()
-    ok = Label(root, fg = 'green', text = 'Cipher[%s]        ' % (bsize.get()))
+    ok = Label(root, fg = 'dark green', text = 'Cipher[%s]        ' % (bsize.get()))
     ok.pack()
     ok.place(x = 110, y = 200)
     return True
@@ -70,7 +70,7 @@ def ccvalidate(ccentry):
     return False
   else:
     #TODO error.pack_forget()
-    ok = Label(root, fg = 'green', text = 'Cipher match               ')
+    ok = Label(root, fg = 'dark green', text = 'Cipher match               ')
     ok.pack()
     ok.place(x = 110, y = 245)
     return True
@@ -147,6 +147,10 @@ def validate_enc():
   radio()
   if cvalidate(ce) == ccvalidate(cce) == unvalidate(une) == pfvalidate(pfe) == stvalidate(saveto) == True:
     apg_de.makepasswd(bsize.get(), key.get(), spass, username.get(), passfor.get(), saveto, pad, dec, low, upp, pun)
+    enctext = Text(root, fg = 'dark green', height = 1, width = 30, wrap = NONE)
+    enctext.insert(INSERT, apg_de.passwd)
+    enctext.pack()
+    enctext.place(x = 90, y = 460)
   else:
     #TODO handle error
     print 'Fill Input'
@@ -156,7 +160,7 @@ def validate_dcpt():
 
   if dkey is not None and dpad is not None and dpass is not None:
     apg_de.decryptpasswd(dkey.get(), dpad, dpass)
-    dctext = Text(root, fg = 'green', height = 1, width = 41, wrap = NONE)
+    dctext = Text(root, fg = 'dark green', height = 1, width = 41, wrap = NONE)
     dctext.insert(INSERT, apg_de.decoded)
     dctext.pack()
     dctext.place(x = 420, y = 435)
@@ -208,7 +212,7 @@ def browse():
   global saveto
 
   filedest = tkFileDialog.asksaveasfilename(parent = root, title = 'Choose a file')
-  sttext = Text(root, fg = 'green', height = 1, width = 37, wrap = NONE)
+  sttext = Text(root, fg = 'dark green', height = 1, width = 38, wrap = NONE)
   sttext.insert(INSERT, filedest)
   sttext.pack()
   sttext.place(x = 10, y = 433)
@@ -238,7 +242,7 @@ def enc_option():
   sel_spin_pun  = StringVar()
   sel_spin_pun.set('4')
   
-  label1 = Label(root, text = 'Password')
+  label1 = Label(root, text = 'Password:')
   label1.pack()
   label1.place(x = 10, y = 10)
   label2 = Label(root, text = 'Start with')
@@ -444,7 +448,7 @@ def get_selection(event):
   dsel_data = lbdata.get(int(sel[0]))
   dsel_pass = dsel_data.split('::', 2)
   dpass = dsel_pass[2]
-  dutext = Text(root, fg = 'green', height = 1, width = 41, wrap = NONE)
+  dutext = Text(root, fg = 'dark green', height = 1, width = 41, wrap = NONE)
   dutext.insert(INSERT, dpass)
   dutext.pack()
   dutext.place(x = 420, y = 297)
