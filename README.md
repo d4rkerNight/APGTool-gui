@@ -16,3 +16,5 @@ TODO:
 [3] Optimize win gui
 
 [4] Finish toolbar
+
+[5] Add config file
