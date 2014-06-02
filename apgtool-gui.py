@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 #
 # Copyright (C) <2014> <t3sl4/tesla23>
 #
@@ -27,11 +27,17 @@
 #
 
 import os
+import sys
 import string
 import apg_de
-import tkFileDialog
 from apg_de import *
-from Tkinter import *
+
+if (sys.version_info[:2] < (3,0)):
+  import tkFileDialog
+  from Tkinter import *
+else:
+  import tkinter.filedialog
+  from tkinter import *
 
 # encrypt
 bsize = key = username = passfor = saveto = spass = pad = dec = low = upp = pun = ''
@@ -152,9 +158,8 @@ def validate_enc():
     enctext.insert(INSERT, apg_de.passwd)
     enctext.pack()
     enctext.place(x = 90, y = 460)
-  else:
+  #else:
     #TODO handle error
-    print 'Fill Input'
 
 def validate_dcpt():
   global dkey, dpad, dpass
@@ -166,9 +171,8 @@ def validate_dcpt():
     dctext.insert(INSERT, apg_de.decoded)
     dctext.pack()
     dctext.place(x = 420, y = 435)
-  else:
+  #else:
     #TODO handle error
-    print 'Error'
 
 def radio():
   global spass
@@ -216,7 +220,7 @@ def dcpt_button():
 def browse():
   global saveto
 
-  filedest = tkFileDialog.asksaveasfilename(parent = root, title = 'Choose a file')
+  filedest = tkFileDialog.asksaveasfilename(defaultextension = txt, parent = root, title = 'Choose a file')
   sttext = Text(root, fg = 'dark green', height = 1, width = 38, wrap = NONE)
   sttext.insert(INSERT, filedest)
   sttext.pack()
