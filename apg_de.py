@@ -43,9 +43,8 @@ def makepasswd(bsize, key, spass, username, passfor, saveto, pad, dec, low, upp,
     bsize = 16
   elif bsize == '24':
     bsize = 24
-  else:
+  #else:
     #TODO handle error
-    print 'Error 1'
 
   if int(dec) > 0:
     i = 0
@@ -115,10 +114,8 @@ def makepasswd(bsize, key, spass, username, passfor, saveto, pad, dec, low, upp,
       cnt += 1
     passwd.insert(0, passwd.pop(cnt))
     passwd = ''.join(passwd)
-  else:
+  #else:
     #TODO handle error
-    print ''
-    print 'Wrong choice!'
 
   padd = lambda s: s + (bsize - len(s) % bsize) * pad
   encAES = lambda c, s: base64.b64encode(c.encrypt(padd(s)))
