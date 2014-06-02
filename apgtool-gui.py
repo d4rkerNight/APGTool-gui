@@ -316,10 +316,10 @@ def cipher_frame():
   global sel_pad
   
   var_padoptm = StringVar()
-  var_padoptm.set('3')
+  var_padoptm.set('&')
   var_blcoptm = StringVar()
   var_blcoptm.set('32')
-  var_digits = list(string.digits)
+  var_digits = list(string.punctuation)
   
   padlabel = Label(root, text = 'Padding')
   padlabel.pack()
@@ -394,8 +394,8 @@ def bdecrypt():
   global decoded
 
   var_padoptm = StringVar()
-  var_padoptm.set('3')
-  var_digits = list(string.digits)
+  var_padoptm.set('&')
+  var_digits = list(string.punctuation)
   
   separator2 = Frame(root, height = 720, width = 2, bd = 1, relief = SUNKEN)
   separator2.pack()
