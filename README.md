@@ -3,7 +3,8 @@ apgtool-gui
 
 Advanced passoword generator tool GUI
 
-python 2.7
+python 2/3
+
 tested on linux/win7
 
 
