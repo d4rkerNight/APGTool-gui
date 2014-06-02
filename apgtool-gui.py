@@ -22,7 +22,7 @@
 #
 # Project will be maintained @
 #
-# https://github.com/t3sl4/apg-tool
+# https://github.com/t3sl4/
 #
 #
 
