@@ -17,3 +17,5 @@ TODO:
 
 [4] Fix padding. Somehow apgtool-gui.py adds chars to the decrypted password if '&' is used as padding.
 It does not happen with apgtool.py
+
+[5] Finish toolbar
