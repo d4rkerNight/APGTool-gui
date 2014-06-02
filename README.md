@@ -18,3 +18,5 @@ TODO:
 [4] Finish toolbar
 
 [5] Add config file
+
+[6] Change to pyqt
