@@ -220,15 +220,21 @@ def dcpt_button():
 def browse():
   global saveto
 
-  filedest = tkFileDialog.asksaveasfilename(defaultextension = txt, parent = root, title = 'Choose a file')
+  if (sys.version_info[:2] < (3,0)):
+    filedest = tkFileDialog.asksaveasfilename(defaultextension = 'txt', parent = root, title = 'Choose a file')
+  else:
+    filedest = filedialog.asksaveasfilename(defaultextension = 'txt', parent = root, title = 'Choose a file')
   sttext = Text(root, fg = 'dark green', height = 1, width = 38, wrap = NONE)
   sttext.insert(INSERT, filedest)
   sttext.pack()
   sttext.place(x = 10, y = 433)
   saveto = filedest
 
-def openfile():  
-  file = tkFileDialog.askopenfile(parent=root,mode='r',title='Choose a file')
+def openfile():
+  if (sys.version_info[:2] < (3,0)):
+    file = tkFileDialog.askopenfile(parent=root,mode='r',title='Choose a file')
+  else:
+    file = filedialog.askopenfile(parent=root,mode='r',title='Choose a file')
   data = file.readlines()
   file.close()
   data = [dt.rstrip() for dt in data]
