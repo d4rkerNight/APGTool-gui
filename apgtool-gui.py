@@ -41,6 +41,7 @@ ce = cce = une = pfe = ''
 # decrypt
 dkey = dpad = dpass = ''
 dke = lbdata = ''
+sel_dpad = ''
 
 def cvalidate(centry):
   global ce
@@ -158,6 +159,7 @@ def validate_enc():
 def validate_dcpt():
   global dkey, dpad, dpass
 
+  dcpad()
   if dkey is not None and dpad is not None and dpass is not None:
     apg_de.decryptpasswd(dkey.get(), dpad, dpass)
     dctext = Text(root, fg = 'dark green', height = 1, width = 41, wrap = NONE)
@@ -186,6 +188,9 @@ def spin_upp():
 def spin_pun():
   global pun
   pun = sel_pun.get()
+def dcpad():
+  global dpad
+  dpad = sel_dpad.get()
 
 def toolbar():
   menu = Menu(root)
@@ -389,13 +394,13 @@ def save_to():
 
 def bdecrypt():
   global dkey
-  global dpad
   global dpass
   global decoded
+  global sel_dpad
 
   var_padoptm = StringVar()
   var_padoptm.set('&')
-  var_digits = list(string.punctuation)
+  var_punct = list(string.punctuation)
   
   separator2 = Frame(root, height = 720, width = 2, bd = 1, relief = SUNKEN)
   separator2.pack()
@@ -420,11 +425,10 @@ def bdecrypt():
   dpadlabel = Label(root, text = 'Padding')
   dpadlabel.pack()
   dpadlabel.place(x = 350, y = 390)
-  dpadoptm = OptionMenu(root, var_padoptm, *var_digits)
+  dpadoptm = OptionMenu(root, var_padoptm, *var_punct)
   dpadoptm.pack()
   dpadoptm.place(x = 420, y = 388)
-  ddpad = var_padoptm
-  dpad = ddpad.get()
+  sel_dpad = var_padoptm
 
   dcpass = Label(root, text = 'Password')
   dcpass.pack()
