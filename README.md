@@ -3,7 +3,7 @@ apgtool-gui
 
 Advanced passoword generator tool GUI
 
-python 2/3
+python 2
 
 tested on linux/win
 
@@ -21,3 +21,5 @@ TODO:
 [5] Add config file
 
 [6] Change to pyqt
+
+[7] Fix python 3 compatibility
