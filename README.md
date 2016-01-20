@@ -1,6 +1,7 @@
 apgtool-gui
 ============
 
+[Project not yet finished]
 Advanced passoword generator tool GUI
 
 python 2
