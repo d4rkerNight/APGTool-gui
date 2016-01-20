@@ -1,7 +1,8 @@
 apgtool-gui
 ============
 
-[Project not yet finished]
+[Project not yet finished, testing fase]
+
 Advanced passoword generator tool GUI
 
 python 2
