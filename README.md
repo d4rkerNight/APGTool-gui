@@ -1,7 +1,7 @@
 apgtool-gui
 ============
 
-[Project not yet finished, testing fase]
+[Project not yet finished, building phase]
 
 Advanced passoword generator tool GUI
 
